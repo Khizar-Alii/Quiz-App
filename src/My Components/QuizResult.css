@@ -16,6 +16,10 @@
   .questions .container {
     margin-bottom: 20px;
   }
+  h2{
+    text-align: center;
+    color: coral;
+  }
   
   .questions h4 {
     color: green;

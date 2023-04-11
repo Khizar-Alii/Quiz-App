@@ -30,6 +30,13 @@ header {
     color: #fff;
     text-decoration: none;
   }
+  nav a:hover{
+    color: #ddd;
+  }
+
+  nav a:active {
+    color: #00a8ff;
+   }
   
   /* Media query to change navbar layout for smaller screens */
   @media only screen and (max-width: 768px) {

@@ -4,7 +4,7 @@ import React from 'react'
 const QuizResult = (props) => {
   return (
     <div className='container' >
-      <h2>Correct Answers</h2>
+      <h2>Your score is {props.score} <br /> Check The Solution Below</h2>
       <div className="questions">
         {props.quizData.map((item)=>(
             <div key={item.id} className='container'>

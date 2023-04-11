@@ -35,24 +35,22 @@ const quizData = [
   },
   // Add more questions here...
 ];
+let marks = null;
 
 function QuizView() {
   const [answer, setAnswer] = useState("");
   const [submitted, setSubmitted] = useState(false);
-
-  const handleOptionChange = (event) => {
-    setAnswer(event.target.value);
-  };
+  const [score, setScore] = useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
+    console.log(score);
   };
 
   if (submitted) {
-    return <QuizResult answer = {answer} quizData = {quizData}/>;
+    return <QuizResult score={score} answers={answer} quizData={quizData} />;
   }
-
   return (
     <div className="container">
       <form action="#" onSubmit={handleSubmit}>
@@ -67,7 +65,13 @@ function QuizView() {
                     className="input"
                     type="radio"
                     name={`option-${item.id}`}
-                    onChange={handleOptionChange}
+                    onChange={(e) => {
+                      setAnswer(e.target.value);
+                      if (item.answer === e.target.value) {
+                        marks = marks + 1;
+                        setScore(marks);
+                      }
+                    }}
                     value={option}
                   />
                   {option}
